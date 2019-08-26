@@ -1,0 +1,107 @@
+Migrations for 'myapp':
+  myapp\migrations\0002_news.py
+    - Create model News
+
+C:\Users\Lenovo\Desktop\python\django_project\djproject>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, myapp, sessions, social_django
+Running migrations:
+  Applying myapp.0002_news... OK
+
+C:\Users\Lenovo\Desktop\python\django_project\djproject>python manage.py shell
+Python 3.7.1 (v3.7.1:260ec2c36a, Oct 20 2018, 14:05:16) [MSC v.1915 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>>
+>>> from myapp.models import News1
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+ImportError: cannot import name 'News1' from 'myapp.models' (C:\Users\Lenovo\Desktop\python\django_project\djp
+roject\myapp\models.py)
+>>> from myapp.models import News
+>>> import datetime
+>>>
+>>> import myapp.models import web1
+  File "<console>", line 1
+    import myapp.models import web1
+                             ^
+SyntaxError: invalid syntax
+>>> from  myapp.models import web1
+>>> p = web1(news_head ="newss",news_web="test news",news_img="testt",date=datetime.datetime.now())
+>>> p.save()
+>>> print(web1.objects.all)
+<bound method BaseManager.all of <django.db.models.manager.Manager object at 0x04647030>>
+>>> q=web1.object.filter(news_head="newss")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'web1' has no attribute 'object'
+>>> q=web1.objects.filter(news_head="newss")
+>>> print(q)
+<QuerySet [<web1: web1 object (2)>]>
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+C:\Users\Lenovo\Desktop\python\django_project\djproject>python manage.py makemigrations
+Migrations for 'myapp':
+  myapp\migrations\0002_news.py
+    - Create model News
+
+C:\Users\Lenovo\Desktop\python\django_project\djproject>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, myapp, sessions, social_django
+Running migrations:
+  Applying myapp.0002_news... OK
+
+C:\Users\Lenovo\Desktop\python\django_project\djproject>python manage.py shell
+Python 3.7.1 (v3.7.1:260ec2c36a, Oct 20 2018, 14:05:16) [MSC v.1915 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>>
+>>> from myapp.models import News1
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+ImportError: cannot import name 'News1' from 'myapp.models' (C:\Users\Lenovo\Desktop\python\django_project\djp
+roject\myapp\models.py)
+>>> from myapp.models import News
+>>> import datetime
+>>>
+>>> import myapp.models import web1
+  File "<console>", line 1
+    import myapp.models import web1
+                             ^
+SyntaxError: invalid syntax
+>>> from  myapp.models import web1
+>>> p = web1(news_head ="newss",news_web="test news",news_img="testt",date=datetime.datetime.now())
+>>> p.save()
+>>> print(web1.objects.all)
+<bound method BaseManager.all of <django.db.models.manager.Manager object at 0x04647030>>
+>>> q=web1.object.filter(news_head="newss")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'web1' has no attribute 'object'
+>>> q=web1.objects.filter(news_head="newss")
+>>> print(q)
+<QuerySet [<web1: web1 object (2)>]>
+>>>  print(list(q))
+  File "<console>", line 1
+    print(list(q))
+    ^
+IndentationError: unexpected indent
+>>> print(list(q))
+[<web1: web1 object (2)>]
+>>> print(q[0])
+web1 object (2)
+>>> p1=News(title="my title",authors="mr demo",publisher=q[0],publication_date=datetime.datetime.now())
+>>> p1.save()
+>>>
+>>> print(News.object.filter(authors="mr demo"))
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'News' has no attribute 'object'
+>>> print(News.objects.filter(authors="mr demo"))
+<QuerySet [<News: News object (1)>]>
